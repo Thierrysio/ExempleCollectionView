@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExempleCollectionView.Vues.ExempleCollectionVue"
+             Title="ExempleCollectionVue">
+    <VerticalStackLayout>
+
+        <StackLayout VerticalOptions="Start" Padding="30,10,10,0">
+            <CollectionView x:Name="collViewProduit" ItemsLayout="VerticalGrid, 1" ItemsSource="{Binding MaListeProduits}"  SelectionMode="Single" SelectionChanged="CollViewSelectionChanged" BackgroundColor="White">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="10,0,10,10" Padding="0,5" StrokeThickness="2" >
+                            <Grid Padding="10" Margin="10">
+                                
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="1.5*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            
+                                <HorizontalStackLayout>
+                                
+
+                                <Image Source="{Binding Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
+                            <Label Text="{Binding Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
+                            <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                                         VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
+                                </HorizontalStackLayout>
+                           
+
+                        </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+        
+    </VerticalStackLayout>
+</ContentPage>
